@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.zs.cloudmusickotlin.MainActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:paddingTop="@dimen/toolbar_padding_top"
+            app:popupTheme="@style/AppTheme.PopupOverlay">
+
+            <RadioGroup
+                android:id="@+id/rg_toolbar"
+                android:layout_width="200dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rb_localMusic"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:button="@null"
+                    android:drawableTop="@drawable/actionbar_music"
+                    android:text="@null"
+                    android:textSize="0sp"/>
+
+                <RadioButton
+                    android:id="@+id/rb_foundMusic"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:button="@null"
+                    android:drawableTop="@drawable/actionbar_disco"
+                    android:text="@null"
+                    android:textSize="0sp"/>
+
+                <RadioButton
+                    android:id="@+id/rb_musicFriend"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:button="@null"
+                    android:drawableTop="@drawable/actionbar_friends"
+                    android:text="@null"
+                    android:textSize="0sp"/>
+
+
+            </RadioGroup>
+
+
+            <ImageView
+                android:src="@mipmap/actionbar_search"
+                android:id="@+id/bar_search"
+                android:layout_width="23dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="right"
+                android:layout_marginEnd="15dp"
+                android:scaleType="center"/>
+
+
+        </android.support.v7.widget.Toolbar>
+
+
+    </android.support.design.widget.AppBarLayout>
+
+    <include layout="@layout/content_main"/>
+
+</android.support.design.widget.CoordinatorLayout>

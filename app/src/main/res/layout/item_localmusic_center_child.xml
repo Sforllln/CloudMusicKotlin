@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zs.cloudmusickotlin.ui.widget.CustomLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    app:marginLeft="73dp"
+    android:layout_width="match_parent"
+    android:layout_height="55dp"
+    android:background="@drawable/selector_localmusicitem"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+
+    <ImageView
+        android:id="@+id/center_child_icon"
+        android:padding="3dp"
+        android:layout_marginLeft="8dp"
+        android:layout_gravity="center"
+        android:src="@mipmap/love_music"
+        android:layout_width="55dp"
+        android:layout_height="55dp"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/center_child_titles"
+            android:textColor="#000000"
+            android:textSize="14sp"
+            android:layout_marginTop="7dp"
+            android:layout_marginLeft="10dp"
+            android:text="我喜欢的音乐"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/center_child_count"
+            android:textSize="11sp"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="10dp"
+            android:text="0首"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+
+    </LinearLayout>
+
+    <ImageView
+        android:background="@drawable/selector_localmusicitem"
+        android:padding="14dp"
+        android:layout_gravity="center"
+        android:id="@+id/center_child_moreChoose"
+        android:layout_width="50dp"
+        android:layout_height="match_parent"
+        android:src="@mipmap/more_choose1"/>
+
+
+</com.zs.cloudmusickotlin.ui.widget.CustomLinearLayout>

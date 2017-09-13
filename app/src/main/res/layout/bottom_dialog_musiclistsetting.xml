@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#f3f3f3"
+    android:orientation="vertical">
+
+    <TextView
+        android:paddingTop="10dp"
+        android:layout_marginTop="10dp"
+        android:id="@+id/child_musicList_title"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:layout_marginLeft="10dp"
+        android:gravity="center_vertical"
+        android:text="歌单:"
+        android:textSize="13sp"/>
+
+
+    <com.zs.cloudmusickotlin.ui.widget.CustomLinearLayout
+        android:id="@+id/ll_download_music_list"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:background="@drawable/selector_localmusicitem"
+        android:orientation="horizontal"
+        app:marginLeft="50dp">
+
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:src="@mipmap/lay_icn_dld"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:text="下载"
+            android:textColor="@color/text_color"
+            android:textSize="14sp"/>
+
+
+    </com.zs.cloudmusickotlin.ui.widget.CustomLinearLayout>
+
+    <com.zs.cloudmusickotlin.ui.widget.CustomLinearLayout
+        android:id="@+id/ll_share_music_list"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:background="@drawable/selector_localmusicitem"
+        android:orientation="horizontal"
+        app:marginLeft="50dp">
+
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:src="@mipmap/lay_icn_share"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:text="分享"
+            android:textColor="@color/text_color"
+            android:textSize="14sp"/>
+
+    </com.zs.cloudmusickotlin.ui.widget.CustomLinearLayout>
+
+    <com.zs.cloudmusickotlin.ui.widget.CustomLinearLayout
+        android:id="@+id/ll_edit_music_list"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:background="@drawable/selector_localmusicitem"
+        android:orientation="horizontal"
+        app:marginLeft="50dp">
+
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:src="@mipmap/lay_icn_edit"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:text="编辑歌单信息"
+            android:textColor="@color/text_color"
+            android:textSize="14sp"/>
+
+    </com.zs.cloudmusickotlin.ui.widget.CustomLinearLayout>
+
+
+    <com.zs.cloudmusickotlin.ui.widget.CustomLinearLayout
+        android:id="@+id/ll_delete_list"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/selector_localmusicitem"
+        android:orientation="horizontal"
+        app:marginLeft="50dp">
+
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:src="@mipmap/lay_icn_delete"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:text="删除"
+            android:textColor="@color/text_color"
+            android:textSize="14sp"/>
+
+    </com.zs.cloudmusickotlin.ui.widget.CustomLinearLayout>
+
+
+</LinearLayout>

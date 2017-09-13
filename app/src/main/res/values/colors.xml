@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#d33b30</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="tabUnselected">#666666</color>
+    <color name="rv_divider">#d7dbda</color>
+    <color name="rv_divider1">#8F8F8F</color>
+    <color name="recycler_view_divider_color">#CFCFCF</color>
+    <color name="bottom_image_divider">#e7e9e8</color>
+
+    <color name="text_color">#1A1A1A</color>
+    <color name="local_music_pressed">#d8dcdb</color>
+</resources>

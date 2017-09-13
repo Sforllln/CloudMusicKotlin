@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#f3f3f3"
+    android:orientation="vertical">
+
+    <TextView
+        android:paddingTop="10dp"
+        android:layout_marginTop="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:layout_marginLeft="8dp"
+        android:gravity="center_vertical"
+        android:text="创建的歌单"
+        android:textSize="13sp"/>
+
+
+    <com.zs.cloudmusickotlin.ui.widget.CustomLinearLayout
+        android:id="@+id/ll_create_music_list"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/selector_localmusicitem"
+        android:orientation="horizontal"
+        app:marginLeft="50dp">
+
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:src="@mipmap/newlist"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:text="创建的歌单"
+            android:textColor="@color/text_color"
+            android:textSize="14sp"/>
+
+
+    </com.zs.cloudmusickotlin.ui.widget.CustomLinearLayout>
+
+    <com.zs.cloudmusickotlin.ui.widget.CustomLinearLayout
+        android:id="@+id/ll_musiclist_manger"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/selector_localmusicitem"
+        android:orientation="horizontal"
+        app:marginLeft="50dp">
+
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:src="@mipmap/lay_icn_manage"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:text="歌单管理"
+            android:textColor="@color/text_color"
+            android:textSize="14sp"/>
+
+    </com.zs.cloudmusickotlin.ui.widget.CustomLinearLayout>
+
+
+</LinearLayout>
