@@ -36,14 +36,14 @@ class LocalMusicFragment : BaseLazyFragment(), LocalMusicRvAdapter.OnClickListen
     private lateinit var mCenterChildData: CenterChildData
     private var centerList: ArrayList<CenterChildData> = ArrayList()
 
-    var centerListNew: ArrayList<CenterChildData> = ArrayList()
+//    var centerListNew: ArrayList<CenterChildData> = ArrayList()
 
-    var mBottomData: BottomData? = null
+    private var mBottomData: BottomData? = null
     private var isFirst = true
 
     private lateinit var bottomDialog: MyBottomSheetDialog
 
-    var localMusicAdapter: LocalMusicRvAdapter? = null
+    private var localMusicAdapter: LocalMusicRvAdapter? = null
 
     override fun initPrepare() {
         if (isFirst) {
@@ -116,7 +116,7 @@ class LocalMusicFragment : BaseLazyFragment(), LocalMusicRvAdapter.OnClickListen
         val editMusicList = bottomDialog.findViewById(R.id.ll_edit_music_list)
         val deleteMusicList = bottomDialog.findViewById(R.id.ll_delete_list)
 
-        title.text = "歌单: " + listName
+        title.text = String.format(context.resources.getString(R.string.local_musicl_list, " ", listName)) //"歌单: " + listName
         if (position == 6) {
             deleteMusicList!!.visibility = View.GONE
             editMusicList!!.visibility = View.GONE

@@ -12,7 +12,8 @@
 
 
     <string name="local_center_child_music_count">%d首</string>
-    <string name="local_top_count">%1$1s(%2$d)</string>
+    <string name="local_top_count">%1$2s(%2$d)</string>
     <string name="local_center_count">创建的歌单(%d)</string>
     <string name="local_top_title">(专辑/歌手/MV/专栏)</string>
+    <string name="local_musicl_list">歌单:%1$2s%2$s</string>
 </resources>

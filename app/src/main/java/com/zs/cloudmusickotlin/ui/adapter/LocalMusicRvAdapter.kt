@@ -58,10 +58,9 @@ class LocalMusicRvAdapter(var context: Context,
     fun upDataCenterChildData(centerChildData: ArrayList<CenterChildData>) {
         this.centerChildData = centerChildData
         if (centerChildView[0].visibility == View.GONE) {
-//            centerData.arrowIcon = R.mipmap.rol_h
             Log.d("tag2", this.centerChildView.size.toString() + "  size")
             if (this.centerChildView.size == 1) {
-                Log.d("tag2", "第一次刷新不可见")
+                Log.d("tag2", "中间的childItem不可见")
                 if (bottomDividerImage != null)
                     bottomDividerImage!!.visibility = View.GONE
                 ObjectAnimator.ofFloat(mCenterViewHolder!!.itemView.center_arrow, "rotation", 0f, -90f).setDuration(200).start()
@@ -73,8 +72,7 @@ class LocalMusicRvAdapter(var context: Context,
             }
 
         } else {
-            Log.d("tag2", "第一次刷新可见")
-            //notifyItemRangeInserted(5, getAllCount())
+            Log.d("tag2", "可见")
             notifyItemRangeChanged(5, getAllCount() - 1)
         }
     }
@@ -167,7 +165,7 @@ class LocalMusicRvAdapter(var context: Context,
                 holder.itemView.tv_itemText_count.text = context.resources.getString(R.string.local_top_title)
             } else {
                 val title = context.resources.getString(R.string.local_top_count)
-                holder.itemView.tv_itemText_count.text = String.format(title, " ", topData.count[position])//"(${topData.count[position]})"
+                holder.itemView.tv_itemText_count.text = String.format(title, " ", topData.count[position])
             }
             holder.itemView.setOnClickListener {
 
@@ -180,8 +178,7 @@ class LocalMusicRvAdapter(var context: Context,
             this.mCenterViewHolder = holder
             holder.itemView.center_arrow.setImageResource(centerData.arrowIcon)
             centerViewPosition = holder.itemView.center_titles
-            val count = String.format(context.resources.getString(R.string.local_center_count), centerChildData.size)
-            centerViewPosition!!.text = String.format(centerData.titles + count)
+            centerViewPosition!!.text = String.format(context.resources.getString(R.string.local_center_count), centerChildData.size)
             holder.itemView.center_setting.setImageResource(centerData.settingIcon)
             if (holder.itemView.center_setting != null)
                 holder.itemView.center_setting.setOnClickListener {
@@ -219,11 +216,11 @@ class LocalMusicRvAdapter(var context: Context,
         }
         if (holder is bottomViewHolder) {
             bottomDividerImage = holder.itemView.divider_image
+            //设置margin
             val lp: RecyclerView.LayoutParams = holder.itemView.layoutParams as RecyclerView.LayoutParams
             lp.topMargin = DensityUtil.dip2px(context, 30f)
             holder.itemView.layoutParams = lp
 
-            Log.d("tag2", (centerChildView[0].visibility == View.GONE).toString())
             if (centerChildView[0].visibility == View.GONE) {
                 bottomDividerImage!!.visibility = View.GONE
             }

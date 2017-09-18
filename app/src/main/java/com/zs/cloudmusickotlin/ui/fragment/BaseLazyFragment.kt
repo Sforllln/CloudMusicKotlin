@@ -19,9 +19,9 @@ abstract class BaseLazyFragment : Fragment() {
 
     private var isPrepared: Boolean? = false
     private var isFirst: Boolean = true
-    var mRootView: View? = null
-    var isVisible: Boolean? = false
-    var mContext: Context? = null
+    private var mRootView: View? = null
+    private var isVisible: Boolean? = false
+    private var mContext: Context? = null
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)

@@ -54,6 +54,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         rb_foundMusic.isSelected = true
         rg_toolbar.setOnCheckedChangeListener(this)
         vp_withToolbar.adapter = ToolBarTab(supportFragmentManager, fragmentList)
+        vp_withToolbar.offscreenPageLimit = 2//避免切换时 scrollbar显示
         vp_withToolbar.currentItem = FOUND_MUSIC_PAGE
         vp_withToolbar.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
             override fun onPageScrollStateChanged(state: Int) {
