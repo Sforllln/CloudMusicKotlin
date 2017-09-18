@@ -9,7 +9,7 @@
     <ImageView
         android:id="@+id/center_arrow"
         android:layout_gravity="center"
-        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
         android:src="@mipmap/rol"
         android:layout_width="16dp"
         android:layout_height="16dp"/>
@@ -17,11 +17,11 @@
     <TextView
         android:id="@+id/center_titles"
         android:textSize="13sp"
-        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
         android:layout_weight="1"
         android:drawablePadding="8dp"
         android:gravity="center_vertical"
-        android:text="创建的歌单(1)"
+        android:text="@string/local_center_count"
         android:layout_width="0dp"
         android:layout_height="match_parent"/>
 

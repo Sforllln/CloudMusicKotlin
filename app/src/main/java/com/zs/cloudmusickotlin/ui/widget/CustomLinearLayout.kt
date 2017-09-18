@@ -17,8 +17,8 @@ import com.zs.cloudmusickotlin.R
 
 class CustomLinearLayout(context: Context?, attributeSet: AttributeSet) : LinearLayout(context, attributeSet) {
 
-    val paint = Paint()
-    var marginLeft = 0f
+   private val paint = Paint()
+   private var marginLeft = 0f
 
     init {
         setWillNotDraw(false)

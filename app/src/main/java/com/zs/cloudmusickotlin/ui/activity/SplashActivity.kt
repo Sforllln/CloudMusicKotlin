@@ -6,7 +6,9 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import com.zs.cloudmusickotlin.MainActivity
+import com.zs.cloudmusickotlin.R
 import com.zs.cloudmusickotlin.utils.HandlerUtil
+import com.zs.cloudmusickotlin.utils.SpUtil
 
 /**
  * Created by Jeong Woo on 2017/9/15.
@@ -18,23 +20,20 @@ class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-
-
         HandlerUtil.runOnUiThreadDelay(Runnable {
-
-            startActivity(Intent(this, MainActivity::class.java))
-            finish()
-
             //需要判断用户是不是第一次运行,第一次运行则打开引导页.
-//        if (first){
-//            startActivity(Intent(this,GuideActivity.class))
-//            finish()
-//        }else{
-//            startActivity(Intent(this, MainActivity::class.java))
-//            finish()
-//        }
+            if (SpUtil.isUserFirstEnter(this)) {
+                startActivity(Intent(this, GuideActivity::class.java))
+                SpUtil.setUserFirstEnter(this, false)
+                finish()
+            } else {
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+                overridePendingTransition(R.anim.zoom_enter, R.anim.zoom_exit)
+                finish()
+            }
 
-        }, 1600)
+        }, 1800)
 
     }
 

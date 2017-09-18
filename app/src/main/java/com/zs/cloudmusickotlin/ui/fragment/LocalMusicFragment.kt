@@ -2,6 +2,7 @@ package com.zs.cloudmusickotlin.ui.fragment
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.widget.SimpleItemAnimator
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -23,7 +24,7 @@ class LocalMusicFragment : BaseLazyFragment(), LocalMusicRvAdapter.OnClickListen
 
     data class TopData(var titles: ArrayList<String>, var icons: ArrayList<Int>, var count: ArrayList<Int>)
     data class CenterData(var arrowIcon: Int, var titles: String, var settingIcon: Int)
-    data class CenterChildData(var icon: Int, var name: String, var musicCount: String, var chooseIcon: Int)
+    data class CenterChildData(var icon: Int, var name: String, var musicCount: Int, var chooseIcon: Int)
     data class BottomData(var titles: String, var icons: ArrayList<Int>, var text: ArrayList<String>)
 
 
@@ -72,7 +73,7 @@ class LocalMusicFragment : BaseLazyFragment(), LocalMusicRvAdapter.OnClickListen
 
         mBottomData = BottomData("", arrayListOf(), arrayListOf())
 
-        mCenterChildData = CenterChildData(R.mipmap.love_music, "我喜欢的音乐", "0首", R.mipmap.more_choose1)
+        mCenterChildData = CenterChildData(R.mipmap.love_music, "我喜欢的音乐", 0, R.mipmap.more_choose1)
 
         centerList.add(mCenterChildData)
 
@@ -85,6 +86,9 @@ class LocalMusicFragment : BaseLazyFragment(), LocalMusicRvAdapter.OnClickListen
         rv_localMusic.setHasFixedSize(true)
         localMusicAdapter!!.setOnClick(this)
         rv_localMusic.adapter = localMusicAdapter
+        //刷新不闪烁
+        (rv_localMusic.itemAnimator as SimpleItemAnimator).supportsChangeAnimations = false
+//        rv_localMusic.itemAnimator.changeDuration = 0
     }
 
     private fun centerSettingClick() {
@@ -163,7 +167,7 @@ class LocalMusicFragment : BaseLazyFragment(), LocalMusicRvAdapter.OnClickListen
 
     // 模拟测试数据更新操作
     private fun update() {
-        mBottomData = BottomData("推荐音乐", arrayListOf(R.mipmap.ic_launcher_round, R.mipmap.ic_launcher, R.mipmap.ic_launcher), arrayListOf("强烈推荐", "一般推荐", "不推荐"))
+        mBottomData = BottomData("推荐歌单", arrayListOf(R.mipmap.ic_launcher_round, R.mipmap.ic_launcher, R.mipmap.ic_launcher), arrayListOf("强烈推荐", "一般推荐", "不推荐"))
         localMusicAdapter!!.upDateBottomData(mBottomData!!)
 
         val count = arrayListOf(18, 99, 122, 9, 0)
@@ -171,10 +175,10 @@ class LocalMusicFragment : BaseLazyFragment(), LocalMusicRvAdapter.OnClickListen
         localMusicAdapter!!.upDataTopData(mTopData)
 
 
-        val mCenterChildData5 = CenterChildData(R.mipmap.centerchildicon, "音乐1", "999首", R.mipmap.more_choose1)
-        val mCenterChildData2 = CenterChildData(R.mipmap.centerchildicon, "音乐2", "888首", R.mipmap.more_choose1)
-        val mCenterChildData3 = CenterChildData(R.mipmap.centerchildicon, "音乐3", "777首", R.mipmap.more_choose1)
-        val mCenterChildData4 = CenterChildData(R.mipmap.centerchildicon, "音乐4", "666首", R.mipmap.more_choose1)
+        val mCenterChildData5 = CenterChildData(R.mipmap.centerchildicon, "音乐1", 999, R.mipmap.more_choose1)
+        val mCenterChildData2 = CenterChildData(R.mipmap.centerchildicon, "音乐2", 888, R.mipmap.more_choose1)
+        val mCenterChildData3 = CenterChildData(R.mipmap.centerchildicon, "音乐3", 777, R.mipmap.more_choose1)
+        val mCenterChildData4 = CenterChildData(R.mipmap.centerchildicon, "音乐4", 666, R.mipmap.more_choose1)
         centerList.clear()
         centerList.add(mCenterChildData)
         centerList.add(mCenterChildData5)

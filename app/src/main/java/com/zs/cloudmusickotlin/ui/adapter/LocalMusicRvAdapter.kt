@@ -11,6 +11,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import com.zs.cloudmusickotlin.R
 import com.zs.cloudmusickotlin.ui.fragment.LocalMusicFragment.*
+import com.zs.cloudmusickotlin.utils.DensityUtil
 import com.zs.cloudmusickotlin.utils.ImageUtils
 import kotlinx.android.synthetic.main.item_localmusic_bottom.view.*
 import kotlinx.android.synthetic.main.item_localmusic_center.view.*
@@ -50,7 +51,8 @@ class LocalMusicRvAdapter(var context: Context,
 
     fun upDateBottomData(bottomData: BottomData) {
         this.bottomData = bottomData
-        notifyItemInserted(getAllCount())
+        //notifyItemInserted(getAllCount())
+        notifyItemChanged(getAllCount())
     }
 
     fun upDataCenterChildData(centerChildData: ArrayList<CenterChildData>) {
@@ -65,15 +67,15 @@ class LocalMusicRvAdapter(var context: Context,
                 ObjectAnimator.ofFloat(mCenterViewHolder!!.itemView.center_arrow, "rotation", 0f, -90f).setDuration(200).start()
                 tag = true
                 centerChildView.forEach { v -> setVisibility(tag, v) }
-                notifyItemRangeInserted(5, getAllCount())
+                notifyItemRangeChanged(5, getAllCount() - 1)
             } else {
-
-                notifyItemChanged(5)
+                notifyItemRangeChanged(5, getAllCount() - 1)
             }
 
         } else {
             Log.d("tag2", "第一次刷新可见")
-            notifyItemRangeInserted(5, getAllCount())
+            //notifyItemRangeInserted(5, getAllCount())
+            notifyItemRangeChanged(5, getAllCount() - 1)
         }
     }
 
@@ -133,38 +135,40 @@ class LocalMusicRvAdapter(var context: Context,
         return super.createViewHolder(parent, viewType)
     }
 
-/*
 
-    //配合DiffUtils 对比数据刷新
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder?, position: Int, payloads: MutableList<Any>?) {
-        super.onBindViewHolder(holder, position, payloads)
-        if (payloads == null || payloads.isEmpty()) {
-            onBindViewHolder(holder, position)
-            return
-        }
-        if (holder is centerChildViewHolder) {
-            val mBundle: Bundle = payloads[0] as Bundle
-            mBundle.keySet().forEach { key ->
-                if (key == "centerChildName") {
-                    holder.itemView.center_child_titles.text = mBundle.get(key) as CharSequence
-                }
-                if (key == "centerChildCount") {
-                    holder.itemView.center_child_count.text = mBundle.get(key) as CharSequence
-                }
-            }
-        }
-    }
-*/
+//
+//    //配合DiffUtils 对比数据刷新
+//    override fun onBindViewHolder(holder: RecyclerView.ViewHolder?, position: Int, payloads: MutableList<Any>?) {
+//        super.onBindViewHolder(holder, position, payloads)
+//        if (payloads == null || payloads.isEmpty()) {
+//            onBindViewHolder(holder, position)
+//            return
+//        }
+//        if (holder is centerChildViewHolder) {
+//            val mBundle: Bundle = payloads[0] as Bundle
+//            mBundle.keySet().forEach { key ->
+//                if (key == "centerChildName") {
+//                    holder.itemView.center_child_titles.text = mBundle.get(key) as CharSequence
+//                }
+//                if (key == "centerChildCount") {
+//                    holder.itemView.center_child_count.text = mBundle.get(key) as CharSequence
+//                }
+//            }
+//        }
+//    }
+
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder?, position: Int) {
 
         if (holder is topViewHolder) {
             holder.itemView.tv_itemText_type1.text = topData.titles[position]
             ImageUtils.loadImageWithGlide(context, topData.icons[position], holder.itemView.iv_itemImage_type1)
-            if (position == 4)
-                holder.itemView.tv_itemText_count.text = "(专辑/歌手/MV/专栏)"
-            else
-                holder.itemView.tv_itemText_count.text = "(${topData.count[position]})"
+            if (position == 4) {
+                holder.itemView.tv_itemText_count.text = context.resources.getString(R.string.local_top_title)
+            } else {
+                val title = context.resources.getString(R.string.local_top_count)
+                holder.itemView.tv_itemText_count.text = String.format(title, " ", topData.count[position])//"(${topData.count[position]})"
+            }
             holder.itemView.setOnClickListener {
 
                 onClick!!.onTopItemClick(position, topData.titles[position])
@@ -176,7 +180,8 @@ class LocalMusicRvAdapter(var context: Context,
             this.mCenterViewHolder = holder
             holder.itemView.center_arrow.setImageResource(centerData.arrowIcon)
             centerViewPosition = holder.itemView.center_titles
-            centerViewPosition!!.text = centerData.titles + "(${centerChildData.size})"
+            val count = String.format(context.resources.getString(R.string.local_center_count), centerChildData.size)
+            centerViewPosition!!.text = String.format(centerData.titles + count)
             holder.itemView.center_setting.setImageResource(centerData.settingIcon)
             if (holder.itemView.center_setting != null)
                 holder.itemView.center_setting.setOnClickListener {
@@ -191,7 +196,9 @@ class LocalMusicRvAdapter(var context: Context,
         if (holder is centerChildViewHolder) {
 
             ImageUtils.loadImageWithGlide(context, centerChildData[position - CENTER_CHILD_COUNT].icon, holder.itemView.center_child_icon)
-            holder.itemView.center_child_count.text = centerChildData[position - CENTER_CHILD_COUNT].musicCount
+            val title = context.resources.getString(R.string.local_center_child_music_count)
+            val count1 = centerChildData[position - CENTER_CHILD_COUNT].musicCount
+            holder.itemView.center_child_count.text = String.format(title, count1)
 
             ImageUtils.loadImageWithGlide(context, centerChildData[position - CENTER_CHILD_COUNT].chooseIcon, holder.itemView.center_child_moreChoose)
             holder.itemView.center_child_titles.text = centerChildData[position - CENTER_CHILD_COUNT].name
@@ -213,7 +220,7 @@ class LocalMusicRvAdapter(var context: Context,
         if (holder is bottomViewHolder) {
             bottomDividerImage = holder.itemView.divider_image
             val lp: RecyclerView.LayoutParams = holder.itemView.layoutParams as RecyclerView.LayoutParams
-            lp.topMargin = 60
+            lp.topMargin = DensityUtil.dip2px(context, 30f)
             holder.itemView.layoutParams = lp
 
             Log.d("tag2", (centerChildView[0].visibility == View.GONE).toString())

@@ -10,11 +10,12 @@ import com.youth.banner.loader.ImageLoader
  * Created by zs on 2017/8/29.
  */
 
-class GlideImae : ImageLoader() {
+class GlideImage : ImageLoader() {
     override fun displayImage(context: Context?, path: Any?, imageView: ImageView?) {
         Glide.with(context!!.applicationContext)
                 .load(path)
                 .diskCacheStrategy(DiskCacheStrategy.SOURCE)
+                .dontAnimate()
                 .into(imageView)
     }
 

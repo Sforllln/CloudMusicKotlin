@@ -35,8 +35,8 @@ class ItemDiffCallBack(private var oldList: List<LocalMusicFragment.CenterChildD
         if (TextUtils.equals(oldData.name, newData.name)) {
             diffBundle.putString("centerChildName", newData.name)
         }
-        if (TextUtils.equals(oldData.musicCount, newData.musicCount)) {
-            diffBundle.putString("centerChildCount", newData.musicCount)
+        if (oldData.musicCount == newData.musicCount) {
+            diffBundle.putInt("centerChildCount", newData.musicCount)
         }
         return diffBundle
     }

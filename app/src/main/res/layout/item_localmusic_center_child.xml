@@ -2,6 +2,7 @@
 <com.zs.cloudmusickotlin.ui.widget.CustomLinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
+    xmlns:tools="http://schemas.android.com/tools"
     app:marginLeft="73dp"
     android:layout_width="match_parent"
     android:layout_height="55dp"
@@ -13,7 +14,7 @@
     <ImageView
         android:id="@+id/center_child_icon"
         android:padding="3dp"
-        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
         android:layout_gravity="center"
         android:src="@mipmap/love_music"
         android:layout_width="55dp"
@@ -30,17 +31,17 @@
             android:textColor="#000000"
             android:textSize="14sp"
             android:layout_marginTop="7dp"
-            android:layout_marginLeft="10dp"
-            android:text="我喜欢的音乐"
+            android:layout_marginStart="10dp"
+            tools:text="我喜欢的音乐"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
         <TextView
             android:id="@+id/center_child_count"
-            android:textSize="11sp"
+            android:textSize="12sp"
             android:layout_marginTop="4dp"
-            android:layout_marginLeft="10dp"
-            android:text="0首"
+            android:layout_marginStart="10dp"
+            android:text="@string/local_center_child_music_count"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 

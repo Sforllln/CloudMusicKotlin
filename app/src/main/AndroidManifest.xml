@@ -17,9 +17,7 @@
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
-
         </activity>
-
         <activity
             android:name=".ui.activity.SplashActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
@@ -30,10 +28,9 @@
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
-
         </activity>
-
-
+        <activity android:name=".ui.activity.GuideActivity">
+        </activity>
     </application>
 
 </manifest>

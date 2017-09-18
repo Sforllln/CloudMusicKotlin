@@ -71,19 +71,14 @@ class FoundMusicFragment : BaseLazyFragment() {
         tb_toolbar.setupWithViewPager(vp_main)
     }
 
-    class TopTabPagerAdapter(fm: FragmentManager?, var listFragment: ArrayList<Fragment>,
-                             var titleImageList: ArrayList<Int>, var context: Context, var list_title: ArrayList<String>) : FragmentPagerAdapter(fm) {
-        override fun getItem(position: Int): Fragment {
-            return listFragment[position]
-        }
+    class TopTabPagerAdapter(fm: FragmentManager?, private var listFragment: ArrayList<Fragment>,
+                             var titleImageList: ArrayList<Int>, var context: Context, private var list_title: ArrayList<String>) : FragmentPagerAdapter(fm) {
+        override fun getItem(position: Int): Fragment = listFragment[position]
 
-        override fun getCount(): Int {
-            return listFragment.size
-        }
+        override fun getCount(): Int = listFragment.size
 
-        override fun getPageTitle(position: Int): CharSequence {
-            return list_title[position % list_title.size]
-        }
+        override fun getPageTitle(position: Int): CharSequence =
+                list_title[position % list_title.size]
 
 
     }
