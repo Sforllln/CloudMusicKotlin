@@ -84,7 +84,7 @@ class GuideActivity : AppCompatActivity(), View.OnClickListener {
         pagerView.add(viewTwo)
         pagerView.add(viewThree)
         guide_title_pager.adapter = guideTopTitleAdapter(pagerView)
-        guide_title_pager.setOnTouchListener { _, _ -> true }
+        guide_title_pager.setOnTouchListener { _, _ -> true } // 目的是 不可以手动滑动
     }
 
     //滑动监听

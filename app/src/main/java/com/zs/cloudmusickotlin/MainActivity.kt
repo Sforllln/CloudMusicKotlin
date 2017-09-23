@@ -9,11 +9,11 @@ import android.support.v4.app.FragmentPagerAdapter
 import android.support.v4.view.GravityCompat
 import android.support.v4.view.ViewPager
 import android.support.v7.app.ActionBarDrawerToggle
-import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
 import android.view.WindowManager
 import android.widget.RadioGroup
 import android.widget.Toast
+import com.zs.cloudmusickotlin.ui.activity.BaseActivity
 import com.zs.cloudmusickotlin.ui.fragment.FoundMusicFragment
 import com.zs.cloudmusickotlin.ui.fragment.FriendMusicFragment
 import com.zs.cloudmusickotlin.ui.fragment.LocalMusicFragment
@@ -22,7 +22,7 @@ import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.android.synthetic.main.content_main.*
 
 
-class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, RadioGroup.OnCheckedChangeListener {
+class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedListener, RadioGroup.OnCheckedChangeListener {
 
     private val LOCAL_MUSIC_PAGE = 0
     private val FOUND_MUSIC_PAGE = 1

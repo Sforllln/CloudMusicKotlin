@@ -7,7 +7,7 @@ import com.zs.cloudmusickotlin.Constant
  * Created by llln on 2017/9/18.
  *
  */
-object SpUtil {
+object SharedPreferencesUtil {
 
     fun setUserFirstEnter(context: Context, isFirst: Boolean) {
         val sp = context.getSharedPreferences(Constant.USER_FIRST, Context.MODE_PRIVATE)

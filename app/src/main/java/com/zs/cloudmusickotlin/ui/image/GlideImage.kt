@@ -15,6 +15,7 @@ class GlideImage : ImageLoader() {
         Glide.with(context!!.applicationContext)
                 .load(path)
                 .diskCacheStrategy(DiskCacheStrategy.SOURCE)
+                .dontAnimate()
                 .into(imageView)
     }
 

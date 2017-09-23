@@ -8,7 +8,7 @@ import android.view.View
 import com.zs.cloudmusickotlin.MainActivity
 import com.zs.cloudmusickotlin.R
 import com.zs.cloudmusickotlin.utils.HandlerUtil
-import com.zs.cloudmusickotlin.utils.SpUtil
+import com.zs.cloudmusickotlin.utils.SharedPreferencesUtil
 
 /**
  * Created by Jeong Woo on 2017/9/15.
@@ -22,10 +22,10 @@ class SplashActivity : AppCompatActivity() {
 
         HandlerUtil.runOnUiThreadDelay(Runnable {
             //需要判断用户是不是第一次运行,第一次运行则打开引导页.
-            if (SpUtil.isUserFirstEnter(this)) {
+            if (SharedPreferencesUtil.isUserFirstEnter(this)) {
                 startActivity(Intent(this, GuideActivity::class.java))
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
-                SpUtil.setUserFirstEnter(this, false)
+                SharedPreferencesUtil.setUserFirstEnter(this, false)
                 finish()
             } else {
                 val intent = Intent(this, MainActivity::class.java)

@@ -19,6 +19,7 @@ import kotlinx.android.synthetic.main.fragment_found_music.*
 
 
 class FoundMusicFragment : BaseLazyFragment() {
+
     override fun initPrepare() {
         initTab()
     }
@@ -70,6 +71,7 @@ class FoundMusicFragment : BaseLazyFragment() {
 
     class TopTabPagerAdapter(fm: FragmentManager?, private var listFragment: ArrayList<Fragment>,
                              var titleImageList: ArrayList<Int>, var context: Context, private var list_title: ArrayList<String>) : FragmentPagerAdapter(fm) {
+
         override fun getItem(position: Int): Fragment = listFragment[position]
 
         override fun getCount(): Int = listFragment.size
