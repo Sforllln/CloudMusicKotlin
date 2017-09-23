@@ -22,10 +22,10 @@ class MusicListFragment : BaseLazyFragment() {
     override fun onVisible() {
     }
 
-    override fun initView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater!!.inflate(R.layout.fragment_music_list, container, false)
+    override fun initView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View?
+        = inflater!!.inflate(R.layout.fragment_music_list, container, false)
 
-    }
+
 
 
 

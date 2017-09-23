@@ -10,13 +10,13 @@ import com.zs.cloudmusickotlin.Constant
 object SpUtil {
 
     fun setUserFirstEnter(context: Context, isFirst: Boolean) {
-        val sp = context.getSharedPreferences(Constant.USER_FITST, Context.MODE_PRIVATE)
-        sp.edit().putBoolean(Constant.USER_FITST, isFirst).apply()
+        val sp = context.getSharedPreferences(Constant.USER_FIRST, Context.MODE_PRIVATE)
+        sp.edit().putBoolean(Constant.USER_FIRST, isFirst).apply()
     }
 
     fun isUserFirstEnter(context: Context): Boolean {
-        val sp = context.getSharedPreferences(Constant.USER_FITST, Context.MODE_PRIVATE)
-        return sp.getBoolean(Constant.USER_FITST, true)
+        val sp = context.getSharedPreferences(Constant.USER_FIRST, Context.MODE_PRIVATE)
+        return sp.getBoolean(Constant.USER_FIRST, true)
     }
 
 

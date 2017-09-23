@@ -21,7 +21,6 @@ import kotlinx.android.synthetic.main.fragment_found_music.*
 class FoundMusicFragment : BaseLazyFragment() {
     override fun initPrepare() {
         initTab()
-
     }
 
     override fun onInvisible() {
@@ -36,10 +35,8 @@ class FoundMusicFragment : BaseLazyFragment() {
 
     }
 
-    override fun initView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater!!.inflate(R.layout.fragment_found_music, container, false)
-        return view
-    }
+    override fun initView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View?
+            = inflater!!.inflate(R.layout.fragment_found_music, container, false)
 
 
     private fun initTab() {

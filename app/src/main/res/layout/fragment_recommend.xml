@@ -9,7 +9,7 @@
     <com.youth.banner.Banner
         android:id="@+id/banner_recommend"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="140dp"
         app:image_scale_type="fit_xy"
         app:indicator_drawable_selected="@drawable/selector_banner_selected_radius"
         app:indicator_drawable_unselected="@drawable/selector_banner_unselected_radius"

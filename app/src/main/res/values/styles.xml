@@ -21,7 +21,11 @@
 
     </style>
 
+    <style name="GuideTheme" parent="AppTheme.NoActionBar">
+        <item name="android:windowFullscreen">true</item>
+    </style>
 
+    <!--自定义的LinearLayout属性-->
     <declare-styleable name="CustomLinearLayout">
         <attr name="marginLeft" format="dimension"/>
 

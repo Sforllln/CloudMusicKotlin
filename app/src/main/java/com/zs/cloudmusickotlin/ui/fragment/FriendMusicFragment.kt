@@ -21,9 +21,8 @@ class FriendMusicFragment : BaseLazyFragment() {
     override fun onVisible() {
     }
 
-    override fun initView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater!!.inflate(R.layout.fragment_friend_music, container, false)
-    }
+    override fun initView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View?
+            = inflater!!.inflate(R.layout.fragment_friend_music, container, false)
 
 
 }

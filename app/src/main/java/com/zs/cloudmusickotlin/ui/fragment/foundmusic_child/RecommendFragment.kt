@@ -14,9 +14,7 @@ import kotlinx.android.synthetic.main.fragment_recommend.*
 class RecommendFragment : BaseLazyFragment() {
 
     //for test
-    private var defaultBannerImage = arrayListOf(R.mipmap.banner_default, R.mipmap.banner_default,
-            R.mipmap.banner_default, R.mipmap.banner_default, R.mipmap.banner_default,
-            R.mipmap.banner_default, R.mipmap.banner_default, R.mipmap.banner_default)
+    private var defaultBannerImage = arrayListOf(R.mipmap.banner_default)
 
 
     override fun initPrepare() {

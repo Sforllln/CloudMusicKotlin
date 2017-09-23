@@ -24,6 +24,7 @@ class SplashActivity : AppCompatActivity() {
             //需要判断用户是不是第一次运行,第一次运行则打开引导页.
             if (SpUtil.isUserFirstEnter(this)) {
                 startActivity(Intent(this, GuideActivity::class.java))
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
                 SpUtil.setUserFirstEnter(this, false)
                 finish()
             } else {

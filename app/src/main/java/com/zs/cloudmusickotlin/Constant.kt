@@ -5,6 +5,6 @@ package com.zs.cloudmusickotlin
  */
 object Constant{
 
-    val USER_FITST ="userFirstEnter"
+    val USER_FIRST ="userFirstEnter"
 
 }
