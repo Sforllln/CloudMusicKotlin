@@ -1,5 +1,6 @@
 package com.zs.cloudmusickotlin
 
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.support.design.widget.NavigationView
@@ -14,6 +15,8 @@ import android.view.WindowManager
 import android.widget.RadioGroup
 import android.widget.Toast
 import com.zs.cloudmusickotlin.ui.activity.BaseActivity
+import com.zs.cloudmusickotlin.ui.activity.TestActivity
+import com.zs.cloudmusickotlin.ui.activity.WXTestActivity
 import com.zs.cloudmusickotlin.ui.fragment.FoundMusicFragment
 import com.zs.cloudmusickotlin.ui.fragment.FriendMusicFragment
 import com.zs.cloudmusickotlin.ui.fragment.LocalMusicFragment
@@ -105,6 +108,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         }
     }
 
+
     private fun setStatusBarTransparent() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             val localLayoutParams = window.attributes
@@ -135,9 +139,10 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         when (id) {
             R.id.nav_camera -> {
                 // Handle the camera action
+                startActivity(Intent(this, WXTestActivity::class.java))
             }
             R.id.nav_gallery -> {
-
+                startActivity(Intent(this, TestActivity::class.java))
             }
             R.id.nav_slideshow -> {
 
