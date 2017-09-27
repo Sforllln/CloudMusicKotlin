@@ -19,8 +19,8 @@ class GuideActivity : AppCompatActivity(), View.OnClickListener {
 
 
     //滑动标志
-    private val TOUCH_LEFT = 0
-    private val TOUCH_RIGHT = 1
+    internal val TOUCH_LEFT = 0
+    internal val TOUCH_RIGHT = 1
     //
     private var gestureDetector: GestureDetector? = null
     private var pagerView: ArrayList<View> = ArrayList(3)

@@ -27,9 +27,9 @@ import kotlinx.android.synthetic.main.content_main.*
 
 class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedListener, RadioGroup.OnCheckedChangeListener {
 
-    private val LOCAL_MUSIC_PAGE = 0
-    private val FOUND_MUSIC_PAGE = 1
-    private val FRIEND_MUSIC_PAGE = 2
+    internal val LOCAL_MUSIC_PAGE = 0
+    internal val FOUND_MUSIC_PAGE = 1
+    internal val FRIEND_MUSIC_PAGE = 2
 
 
     private val fragmentList = arrayListOf<Fragment>(LocalMusicFragment(), FoundMusicFragment(), FriendMusicFragment())
