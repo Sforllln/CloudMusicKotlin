@@ -27,9 +27,9 @@ class GuideActivity : AppCompatActivity(), View.OnClickListener {
     private var firstOnTouch: Long = 0
 
     //页数
-    private val PAGE_ONE = 1
-    private val PAGE_TWO = 2
-    private val PAGE_THREE = 3
+    private val PAGE_ONE = 0
+    private val PAGE_TWO = 1
+    private val PAGE_THREE = 2
 
     //处理滑动时间的最小时间为 1000ms
     private val CAN_SCROLLER_TIME = 1000
@@ -115,13 +115,13 @@ class GuideActivity : AppCompatActivity(), View.OnClickListener {
     private fun changPage(mode: Int) {
         val currentPage = getCurrentPage()
         if (mode == TOUCH_LEFT) {
-            if (currentPage != 3) resetGuideIndStatus()
+            if (currentPage != PAGE_THREE) resetGuideIndStatus()
             when (currentPage) {
                 PAGE_ONE -> {
                     iv_guide_share_one.visibility = View.VISIBLE
 
                     guide_ind_two.isSelected = true
-                    guide_title_pager.currentItem = 1
+                    guide_title_pager.currentItem = PAGE_TWO
                     guideAnim(iv_guide_share_one, R.mipmap.guide_two)
                 }
                 PAGE_TWO -> {
@@ -129,7 +129,7 @@ class GuideActivity : AppCompatActivity(), View.OnClickListener {
                     iv_guide_share_one.visibility = View.INVISIBLE
 
                     guide_ind_three.isSelected = true
-                    guide_title_pager.currentItem = 2
+                    guide_title_pager.currentItem = PAGE_THREE
                     guideAnim(iv_guide_share_two, R.mipmap.guide_three)
                 }
                 PAGE_THREE -> {
@@ -140,20 +140,20 @@ class GuideActivity : AppCompatActivity(), View.OnClickListener {
             }
         }
         if (mode == TOUCH_RIGHT) {
-            if (currentPage != 1) resetGuideIndStatus()
+            if (currentPage != PAGE_ONE) resetGuideIndStatus()
             when (currentPage) {
                 PAGE_THREE -> {
                     iv_guide_share_two.visibility = View.INVISIBLE
                     ObjectAnimator.ofFloat(iv_guide_share_two, "y", (cardview.top + cardview.height * 0.317).toFloat() - iv_guide_share_two.height / 2).setDuration(0).start()
                     guide_ind_two.isSelected = true
-                    guide_title_pager.currentItem = 1
+                    guide_title_pager.currentItem = PAGE_TWO
                     cardview.setImageResource(R.mipmap.guide_two)
                 }
                 PAGE_TWO -> {
                     iv_guide_share_one.visibility = View.INVISIBLE
                     ObjectAnimator.ofFloat(iv_guide_share_one, "y", (cardview.top + cardview.height * 0.555).toFloat() - iv_guide_share_one.height / 2).setDuration(0).start()
                     guide_ind_one.isSelected = true
-                    guide_title_pager.currentItem = 0
+                    guide_title_pager.currentItem = PAGE_ONE
                     cardview.setImageResource(R.mipmap.guide_one)
 
 
@@ -176,7 +176,7 @@ class GuideActivity : AppCompatActivity(), View.OnClickListener {
         cardview.visibility = View.INVISIBLE
         cardview.setImageResource(id)
 
-        val anim = ObjectAnimator.ofFloat(target, "y", (cardview.top + cardview.height * 0.023 + 16).toFloat()).setDuration(500)
+        val anim = ObjectAnimator.ofFloat(target, "y", (cardview.top + cardview.height * 0.023 + 16).toFloat()).setDuration(400)
 
         anim.addListener(object : Animator.AnimatorListener {
             override fun onAnimationRepeat(animation: Animator?) {}
@@ -214,11 +214,9 @@ class GuideActivity : AppCompatActivity(), View.OnClickListener {
     //适配器
     class guideTopTitleAdapter(var view: List<View>) : PagerAdapter() {
 
-        override fun isViewFromObject(view: View?, `object`: Any?): Boolean
-                = view == `object`
+        override fun isViewFromObject(view: View?, `object`: Any?): Boolean = view == `object`
 
-        override fun getCount(): Int
-                = view.size
+        override fun getCount(): Int = view.size
 
         override fun instantiateItem(container: ViewGroup?, position: Int): Any {
             container!!.addView(view[position])
