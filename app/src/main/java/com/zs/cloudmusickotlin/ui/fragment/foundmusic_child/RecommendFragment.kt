@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.llln.rxjava2kotlin.fragment.BaseLazyFragment
+import com.zs.cloudmusickotlin.ui.fragment.BaseLazyFragment
 import com.youth.banner.BannerConfig
 import com.youth.banner.Transformer
 import com.zs.cloudmusickotlin.R

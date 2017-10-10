@@ -1,4 +1,4 @@
-package com.example.llln.rxjava2kotlin.fragment
+package com.zs.cloudmusickotlin.ui.fragment
 
 import android.content.Context
 import android.os.Bundle
@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 
 
 /**
@@ -69,6 +70,11 @@ abstract class BaseLazyFragment : Fragment() {
         super.onCreate(savedInstanceState)
         mContext = activity
     }
+
+
+    // 显示toast
+    fun Fragment.mToast(message: CharSequence) = Toast.makeText(activity, message, Toast.LENGTH_SHORT).show()
+
 
     /**
      * 在onActivityCreated中调用的方法，可以用来进行初始化操作。

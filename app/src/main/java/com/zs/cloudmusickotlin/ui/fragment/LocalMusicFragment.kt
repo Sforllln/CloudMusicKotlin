@@ -1,7 +1,6 @@
 package com.zs.cloudmusickotlin.ui.fragment
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.support.v7.widget.SimpleItemAnimator
 import android.view.LayoutInflater
 import android.view.View
@@ -9,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
-import com.example.llln.rxjava2kotlin.fragment.BaseLazyFragment
 import com.zs.cloudmusickotlin.R
 import com.zs.cloudmusickotlin.ui.adapter.LocalMusicRvAdapter
 import com.zs.cloudmusickotlin.ui.widget.MyBottomSheetDialog
@@ -199,6 +197,5 @@ class LocalMusicFragment : BaseLazyFragment(), LocalMusicRvAdapter.OnClickListen
             = inflater!!.inflate(R.layout.fragment_local_music, container, false)
 
 
-    private fun Fragment.mToast(message: CharSequence) = Toast.makeText(activity, message, Toast.LENGTH_SHORT).show()
 
 }

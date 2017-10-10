@@ -6,7 +6,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.annotation.IdRes
 import android.support.v4.view.PagerAdapter
-import android.support.v7.app.AppCompatActivity
 import android.view.*
 import android.widget.Toast
 import com.zs.cloudmusickotlin.R
@@ -15,7 +14,7 @@ import kotlinx.android.synthetic.main.activity_guide.*
 import kotlinx.android.synthetic.main.activity_guide_indicator.*
 
 
-class GuideActivity : AppCompatActivity(), View.OnClickListener {
+class GuideActivity : BaseActivity(), View.OnClickListener {
 
 
     //滑动标志
@@ -53,10 +52,10 @@ class GuideActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
         when (v!!.id) {
             iv_register.id -> {
-                showToast("register")
+                showToast("register", Toast.LENGTH_SHORT)
             }
             iv_enter.id -> {
-                showToast("enter")
+                showToast("enter", Toast.LENGTH_SHORT)
             }
         }
     }
@@ -229,9 +228,6 @@ class GuideActivity : AppCompatActivity(), View.OnClickListener {
 
 
     }
-
-    //拓展函数
-    private fun AppCompatActivity.showToast(text: CharSequence) = Toast.makeText(this, text, Toast.LENGTH_SHORT).show()
 
 
 }

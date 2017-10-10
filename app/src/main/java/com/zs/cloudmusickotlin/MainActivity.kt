@@ -1,5 +1,6 @@
 package com.zs.cloudmusickotlin
 
+
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
@@ -104,7 +105,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         toggle.syncState()
         nav_view.setNavigationItemSelectedListener(this)
         bar_search.setOnClickListener {
-            Toast.makeText(this, "bar_search", Toast.LENGTH_SHORT).show()
+            showToast("bar_search", Toast.LENGTH_SHORT)
         }
     }
 
